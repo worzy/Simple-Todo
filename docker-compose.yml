@@ -8,8 +8,8 @@ services:
             WEB_ALIAS_DOMAIN: todoapp.localhost
             WEB_PHP_SOCKET: php-fpm:9000
         volumes: # Only shared dirs to apache (to be served)
-            - ./public:/var/www/public:cached
-            - ./storage:/var/www/storage:cached
+            - ./public:/var/www/public
+            - ./storage:/var/www/storage
         networks:
             - todoapp-network
         ports:
