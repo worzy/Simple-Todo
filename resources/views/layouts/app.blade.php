@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Simple Todo') }}</title>
+    <title>Simple Todo</title>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
