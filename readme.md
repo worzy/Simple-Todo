@@ -31,6 +31,6 @@ This is automatically setup with: `make install`
 Username: `admin@admin.com`
 Password: `secret`
 
-## CONTINUOUS INTEGRATION
+## Continuous Integration
 
 Project set up with Travis CI https://travis-ci.com/worzy/Simple-Todo/
