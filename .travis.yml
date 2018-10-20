@@ -1,9 +1,14 @@
 language: php
+sudo: required
+dist: trusty
 
 php:
   - "7.2"
 
-before_script:
+addons:
+  chrome: stable
+
+install:
   - cp .env.travis .env
   - mysql -e 'create database todoapp_test;'
   - composer self-update
@@ -11,5 +16,10 @@ before_script:
   - php artisan key:generate
   - php artisan migrate
 
+before_script:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
+
 script:
   - vendor/bin/phpunit
+  - php artisan dusk
