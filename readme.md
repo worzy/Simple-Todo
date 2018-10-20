@@ -5,7 +5,7 @@
 
 **Application base URL:** `simpletodo.localhost`
 
-There is a Makefile in the root of the project to easier setup and run the project.
+The local environment requires Docker installed on the host machine, then there is a Makefile in the root of the project to easier setup and run the project.
 
 ### Setup
 
@@ -26,6 +26,11 @@ This is automatically setup with: `make install`
 * Feature tests inc. API `docker-compose exec php-fpm t` <-- alias to run `phpunit` from within the `/vendor` folder.
 * Dusk browser tests `docker-compose exec php-fpm php artisan dusk`
 
+## Default login
+
+Username: `admin@admin.com`
+Password: `secret`
+
 ## CONTINUOUS INTEGRATION
 
-Files located in `ci` to setup environment on Codeship and run the tests on every commit.
+Project set up with Travis CI https://travis-ci.com/worzy/Simple-Todo/
