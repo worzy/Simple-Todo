@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Entities\User;
 
-class HomePageTest extends DuskTestCase
+class AuthTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
@@ -34,16 +34,38 @@ class HomePageTest extends DuskTestCase
      */
     public function test_login()
     {
+        $email = "testlogin@user.com";
+        $password = "secret";
+
         $user = factory(User::class)->create([
-            'email' => 'testlogin@user.com',
-            'password' => bcrypt('secret'),
+            'email' => $email,
+            'password' => bcrypt($password),
         ]);
 
+        // Page loads
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
                     ->assertSee('Simple Todo')
                     ->assertSee('E-Mail Address')
                     ->assertSee('Register');
+        });
+
+        // Login validation test
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                    ->type('email', 'notmy@email.com')
+                    ->type('password', 'hello')
+                    ->press('Login')
+                    ->assertSee('These credentials do not match our records.');
+        });
+
+        //Login works
+        $this->browse(function (Browser $browser) use ($email, $password) {
+            $browser->visit('/')
+                    ->type('email', $email)
+                    ->type('password', $password)
+                    ->press('Login')
+                    ->assertSee('Todos');
         });
     }
 }

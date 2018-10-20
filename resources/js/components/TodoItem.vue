@@ -1,8 +1,8 @@
 <template>
   <li>
-    <input @keydown.enter="update" v-if="editing" v-model="todo.name">
-    <span v-else @click="edit">{{ todo.name }}</span>
-    <button @click="$emit('remove', todo.id)">
+    <input dusk="edit-todo-input" @keydown.enter="update" v-if="editing" v-model="todo.name">
+    <span dusk="edit-todo" v-else @click="edit">{{ todo.name }}</span>
+    <button dusk="remove-button" @click="$emit('remove', todo.id)">
       X
     </button>
   </li>

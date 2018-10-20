@@ -47776,7 +47776,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         removeTodo: function removeTodo(id) {
             var _this4 = this;
 
-            axios.delete('/todos/' + idToRemove).then(function (response) {
+            axios.delete('/todos/' + id).then(function (response) {
                 _this4.todos = _this4.todos.filter(function (todo) {
                     return todo.id !== id;
                 });
@@ -47967,6 +47967,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -48001,7 +48002,7 @@ var render = function() {
     _vm._g(
       {
         staticClass: "input",
-        attrs: { type: "text" },
+        attrs: { dusk: "add-todo-input", type: "text" },
         domProps: { value: _vm.value }
       },
       _vm.listeners
@@ -48126,6 +48127,7 @@ var render = function() {
               expression: "todo.name"
             }
           ],
+          attrs: { dusk: "edit-todo-input" },
           domProps: { value: _vm.todo.name },
           on: {
             keydown: function($event) {
@@ -48145,13 +48147,14 @@ var render = function() {
             }
           }
         })
-      : _c("span", { on: { click: _vm.edit } }, [
+      : _c("span", { attrs: { dusk: "edit-todo" }, on: { click: _vm.edit } }, [
           _vm._v(_vm._s(_vm.todo.name))
         ]),
     _vm._v(" "),
     _c(
       "button",
       {
+        attrs: { dusk: "remove-button" },
         on: {
           click: function($event) {
             _vm.$emit("remove", _vm.todo.id)

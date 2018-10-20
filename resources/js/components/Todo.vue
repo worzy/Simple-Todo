@@ -79,7 +79,7 @@ export default {
         },
         removeTodo (id) {
             axios
-            .delete(`/todos/${idToRemove}`)
+            .delete(`/todos/${id}`)
             .then(response => {
                 this.todos = this.todos.filter(todo => {
                     return todo.id !== id

@@ -1,5 +1,6 @@
 <template>
   <input
+    dusk="add-todo-input"
     type="text"
     class="input"
     :value="value"
