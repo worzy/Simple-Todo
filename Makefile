@@ -17,6 +17,7 @@ install: ## Builds the environment for the first and starts it
 	docker-compose exec db mysql -uroot -proot -e 'CREATE DATABASE IF NOT EXISTS todoapp_test;'
 	docker-compose exec db mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON todoapp_test.* TO 'todoapp'@'%';"
 	docker-compose exec php-fpm php artisan migrate:fresh --database=mysql_test
+	chmod -R 0755 vendor/laravel/dusk/bin
 
 destroy: ## Destroy and clean the environment.
 	docker-compose down --rmi all --volumes --remove-orphans
