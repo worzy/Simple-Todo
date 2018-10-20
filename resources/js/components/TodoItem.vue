@@ -33,3 +33,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+    .todos-list li {
+        padding: 10px;
+        &:hover {
+          background-color: #e0e0e0;
+        }
+        button {
+          float: right;
+        }
+    }
+</style>

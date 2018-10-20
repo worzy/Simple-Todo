@@ -1,12 +1,14 @@
 <template>
     <div class="container">
+        <div class="row justify-content-md-center">
+        <div class="col-md-8">
       <div>
         <BaseInputText 
             v-model="newTodoText"
             placeholder="New todo"
             @keydown.enter="addTodo"
         />
-        <ul v-if="todos.length">
+        <ul class="todos-list" v-if="todos.length">
             <TodoListItem
                 v-for="todo in sortedTodos"
                 :key="todo.id"
@@ -19,6 +21,8 @@
             You're all done.  Nothing left to do!
         </p>
     </div>
+</div>
+</div>
   </div>
 </template>
 
@@ -89,3 +93,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .todos-list {
+        list-style: none;
+        padding: 0;
+    }
+</style>
